@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - '.config'
+    # paths:
+    #   - '.config'
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
