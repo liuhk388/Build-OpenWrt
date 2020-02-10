@@ -12,7 +12,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
-  FREE_UP_DISK: true
+  FREE_UP_DISK: false
   SSH_ACTIONS: true
   UPLOAD_CONFIG: true
   UPLOAD_BIN_DIR: false
