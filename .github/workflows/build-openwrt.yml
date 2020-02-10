@@ -12,7 +12,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
-  FREE_UP_DISK: false
+  FREE_UP_DISK: true
   SSH_ACTIONS: true
   UPLOAD_CONFIG: true
   UPLOAD_BIN_DIR: false
@@ -22,6 +22,7 @@ env:
 jobs:
   
   build-openwrt:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -117,6 +118,7 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
+        rm *factory.bin
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
 
