@@ -12,7 +12,7 @@ env:
   REPO_BRANCH: openwrt-19.07
   CONFIG_FILE: .config
   DIY_SH: diy.sh
-  FREE_UP_DISK: true
+  FREE_UP_DISK: false
   SSH_ACTIONS: true
   UPLOAD_CONFIG: true
   UPLOAD_BIN_DIR: false
@@ -126,13 +126,13 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
-        rm openwrt-ar71xx-tiny-tl-wr720n-v3-squashfs-factory.bin
+        ls -l
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@master
-      # if: steps.organize.outputs.status == 'success' && !cancelled()
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware_mw4530r
         path: ${{ env.FIRMWARE }}
@@ -242,13 +242,13 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
-        rm openwrt-ar71xx-tiny-tl-wr720n-v3-squashfs-factory.bin
+        ls -l
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@master
-      #if: steps.organize.outputs.status == 'success' && !cancelled()
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware_tl-wr720n
         path: ${{ env.FIRMWARE }}
