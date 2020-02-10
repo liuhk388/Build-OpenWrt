@@ -22,7 +22,6 @@ env:
 jobs:
   
   build-openwrt:
-
     runs-on: ubuntu-latest
 
     steps:
