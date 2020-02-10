@@ -90,18 +90,17 @@ jobs:
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
         echo "::set-output name=status::success"
-        ls openwrt/bin
 
     - name: Upload config
       uses: actions/upload-artifact@master
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_CONFIG == 'true'
+      if: env.UPLOAD_CONFIG == 'true'
       with:
         name: config
         path: openwrt/.config
 
     - name: Upload seed.config
       uses: actions/upload-artifact@master
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_CONFIG == 'true'
+      if: env.UPLOAD_CONFIG == 'true'
       with:
         name: seed.config
         path: openwrt/seed.config
