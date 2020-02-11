@@ -9,7 +9,7 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-19.07
+  REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
   FREE_UP_DISK: false
@@ -135,7 +135,7 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware_mw4530r
-        path: ${{ env.FIRMWARE }}
+        path: ${{ env.FIRMWARE }}/openwrt-ar71xx-generic-mw4530r-v1-squashfs-sysupgrade.bin
 
   build-openwrt-for-tl-wr720n:
 
