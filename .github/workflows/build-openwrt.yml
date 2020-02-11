@@ -1,5 +1,4 @@
 name: Build OpenWrt
-
 on:
   push:
     branches:
