@@ -1,4 +1,5 @@
 name: Build OpenWrt
+
 on:
   push:
     branches:
@@ -134,7 +135,7 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware_mw4530r
-        path: ${{ env.FIRMWARE }}/openwrt-ar71xx-generic-mw4530r-v1-squashfs-sysupgrade.bin
+        path: ${{ env.FIRMWARE }}
 
   build-openwrt-for-tl-wr720n:
 
