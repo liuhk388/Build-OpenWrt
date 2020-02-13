@@ -1,2 +1,2 @@
-# Compile-OpenWrt-by-GitHub-Actions
-Compiling OpenWrt for MW4530R or TL-WR720N by GitHub Actions according to P3TERX / Actions-OpenWrt.
+# Build-OpenWrt-Firmwares-by-GitHub-Actions
+Compiling OpenWrt for different routers (such as MW4530R or TL-WR720N) together by GitHub Actions inspired by P3TERX/Actions-OpenWrt.
