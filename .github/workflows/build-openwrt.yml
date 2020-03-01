@@ -135,7 +135,7 @@ jobs:
 
       - name: Upload upgrade firmware only
       uses: actions/upload-artifact@master
-      if: env.UPGRADE_FIRMWARE_FILE == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
+      if: env.UPLOAD_UPGRADE_FIRMWARE_ONLY == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware_${{ env.BUILD_TARGET }}
         path: ${{ env.FIRMWARE }}/${{ env.UPGRADE_FIRMWARE_FILE }}
@@ -245,7 +245,7 @@ jobs:
 
       - name: Upload upgrade firmware only
       uses: actions/upload-artifact@master
-      if: env.UPGRADE_FIRMWARE_FILE == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
+      if: env.UPLOAD_UPGRADE_FIRMWARE_ONLY == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware_${{ env.BUILD_TARGET }}
         path: ${{ env.FIRMWARE }}/${{ env.UPGRADE_FIRMWARE_FILE }}
