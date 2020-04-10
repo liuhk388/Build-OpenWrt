@@ -41,7 +41,7 @@ jobs:
       UPGRADE_FIRMWARE_FILE: openwrt-ar71xx-generic-mw4530r-v1-squashfs-sysupgrade.bin
 
     runs-on: ubuntu-latest
-    # if: github.event.repository.owner.id == github.event.sender.id
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
     - name: Checkout
@@ -86,7 +86,7 @@ jobs:
       id: package
       run: |
         cd openwrt
-        make defconfig
+        # make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
@@ -167,7 +167,7 @@ jobs:
       UPGRADE_FIRMWARE_FILE: openwrt-ar71xx-tiny-tl-wr720n-v3-squashfs-sysupgrade.bin
 
     runs-on: ubuntu-latest
-    # if: github.event.repository.owner.id == github.event.sender.id
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
     - name: Checkout
@@ -212,7 +212,7 @@ jobs:
       id: package
       run: |
         cd openwrt
-        make defconfig
+        # make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
