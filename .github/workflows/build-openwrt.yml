@@ -6,8 +6,8 @@ on:
       - master
     # paths:
     #   - '.config'
-    #   - 'mw4530r.config'
-    #   - 'tl-wr720n.config'
+    #   - 'mw4530r.seed.config'
+    #   - 'tl-wr720n.seed.config'
   # schedule:
   #   - cron: 0 8 * * 5
   # watch:
@@ -22,7 +22,7 @@ env:
   REPO_BRANCH: master
   # CONFIG_FILE: .config
   DIY_SH: diy.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_CONFIG: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
@@ -37,7 +37,7 @@ jobs:
 
     env:
       BUILD_TARGET: mw4530r
-      CONFIG_FILE: mw4530r.config
+      CONFIG_FILE: mw4530r.seed.config
       UPGRADE_FIRMWARE_FILE: openwrt-ar71xx-generic-mw4530r-v1-squashfs-sysupgrade.bin
 
     runs-on: ubuntu-latest
@@ -86,7 +86,7 @@ jobs:
       id: package
       run: |
         cd openwrt
-        # make defconfig
+        make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
@@ -163,7 +163,7 @@ jobs:
 
     env:
       BUILD_TARGET: tl-wr720n
-      CONFIG_FILE: tl-wr720n.config
+      CONFIG_FILE: tl-wr720n.seed.config
       UPGRADE_FIRMWARE_FILE: openwrt-ar71xx-tiny-tl-wr720n-v3-squashfs-sysupgrade.bin
 
     runs-on: ubuntu-latest
@@ -212,7 +212,7 @@ jobs:
       id: package
       run: |
         cd openwrt
-        # make defconfig
+        make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
