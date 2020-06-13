@@ -88,7 +88,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ${{ env.BUILD_TARGET }}.config4
-        path: /home/runner/work/Build-OpenWrt/Build-OpenWrt/openwrt/.config
+        path: /workdir/openwrt/.config
+
+    - name: Upload config
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.BUILD_TARGET }}.config1
+        path: workdir/openwrt/.config
 
     - name: Upload config
       uses: actions/upload-artifact@v2
