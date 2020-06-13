@@ -76,18 +76,25 @@ jobs:
     - name: Load custom configuration
       run: |
         echo $PWD
-        ls
+        ls -l
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
+        ls -l
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: Upload config
       uses: actions/upload-artifact@master
       with:
         name: ${{ env.BUILD_TARGET }}.config
-        path: workdir/openwrt/.config
+        path: $GITHUB_WORKSPACE/openwrt/.config
+
+    - name: Upload config
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ env.BUILD_TARGET }}.config
+        path: $PWD/openwrt/.config
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
