@@ -48,12 +48,6 @@ jobs:
 
     steps:
 
-    - name: Upload config
-      uses: actions/upload-artifact@master
-      with:
-        name: ${{ env.BUILD_TARGET }}.config
-        path: openwrt/.config
-
     - name: Checkout
       uses: actions/checkout@master
 
@@ -100,6 +94,12 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+
+    - name: Upload config
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ env.BUILD_TARGET }}.config
+        path: openwrt/.config
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
