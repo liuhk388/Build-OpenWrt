@@ -47,7 +47,8 @@ jobs:
       REPO_BRANCH: master
       BUILD_TARGET: mw4530r
       CONFIG_FILE: mw4530r.seed.config
-      UPGRADE_FIRMWARE_FILE: openwrt-ar71xx-generic-mw4530r-v1-squashfs-sysupgrade.bin
+      # UPGRADE_FIRMWARE_FILE: openwrt-ar71xx-generic-mw4530r-v1-squashfs-sysupgrade.bin
+      UPGRADE_FIRMWARE_FILE: openwrt-ath79-generic-mercury_mw4530r-v1-squashfs-sysupgrade.bin
 
     # runs-on: ubuntu-latest
     runs-on: ubuntu-18.04
