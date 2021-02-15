@@ -13,7 +13,6 @@ on:
   #     - master
   #   paths:
   #     - '.config'
-  #     - 'mw4530r.seed.config'
   #     - 'tl-wr720n.seed.config'
   # schedule:
   #   - cron: 0 8 * * 5
@@ -45,7 +44,7 @@ jobs:
 
     env:
       REPO_URL: https://github.com/openwrt/openwrt
-      REPO_BRANCH: 19.07
+      REPO_BRANCH: openwrt-19.07
       BUILD_TARGET: tl-wr720n
       CONFIG_FILE: tl-wr720n.seed.config
       UPGRADE_FIRMWARE_FILE: openwrt-ar71xx-tiny-tl-wr720n-v3-squashfs-sysupgrade.bin
